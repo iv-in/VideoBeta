@@ -8,12 +8,12 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
-require('./configs/mongoose.config')
 const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash = require("connect-flash");
 
-
+// requerimos las configuraciones del folder configs
+require('./configs/mongoose.config')
 
 
 const app_name = require('./package.json').name;
@@ -67,6 +67,7 @@ app.use(session({
 app.use(flash());
 require('./passport')(app);
 
+// Enrutados base
 
 const index = require('./routes/index.routes');
 app.use('/', index);
