@@ -1,3 +1,10 @@
 {{#if msg}}
 <small style="color: red">{{msg}}</small>
 {{/if}}
+
+<h1>los estrenos más esperados (no sabes cuánto):</h1>
+<ul>
+  {{#each response}}
+  <li>{{this.title}}</li>
+  {{/each}}
+</ul>
