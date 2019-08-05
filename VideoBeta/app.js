@@ -78,5 +78,8 @@ app.use('/auth', authRoutes);
 const rolesRoutes = require('./routes/roles.routes');
 app.use('/roles', rolesRoutes);
 
+const searchRoutes = require('./routes/search.routes')
+app.use('/search', searchRoutes)
+
 
 module.exports = app;

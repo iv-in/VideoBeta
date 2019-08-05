@@ -1,7 +1,22 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #eff5fc; }
 
 a {
   color: #00B7FF; }
+
+#navbarNav li {
+  font-size: 1.3em; }
+
+.main {
+  padding: 50px 0 60px; }
+
+.card {
+  margin-top: 30px;
+  background-color: #eff5fc; }
+
+#home-title {
+  font-weight: bold;
+  font-size: 3em; }
 
 /*# sourceMappingURL=style.css.map */
