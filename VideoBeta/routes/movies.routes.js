@@ -18,27 +18,6 @@ const axiosMovies = axios.create({
 
 
 // Detalles de la pelicula
-<<<<<<< HEAD
-router.get('/detail', (req, res, next) => {
-
-  //const Id = document.getElementById("id").value
-  //const Over = document.getElementById("over")
-  //const Title = document.getElementById("title")
-
-  axiosMovies.get(`/${Id}?api_key=${apiKey}&language=${apiLanguage}&page=${page}&region=${apiRegion}`)
-    .then(response => {
-
-      res.render('movies/movies-detail', { response: response.data.results })
-    })
-    .catch(error => {
-      console.log(error)
-    })
-})
-
-
-
-
-=======
 
 router.get('/detail/:id', (req, res, next) => {
   // console.log('estoy dentro')
@@ -55,7 +34,6 @@ router.get('/detail/:id', (req, res, next) => {
 
 })
 
->>>>>>> 657158edb2ea6ad27a7ddefa97d7db205be911b9
 
 router.post('/create', (req, res, next)=>{
 
