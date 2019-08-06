@@ -81,5 +81,7 @@ app.use('/roles', rolesRoutes);
 const searchRoutes = require('./routes/search.routes')
 app.use('/search', searchRoutes)
 
+const movieRoutes = require('./routes/movies.routes');
+app.use('/movies', movieRoutes);
 
 module.exports = app;
