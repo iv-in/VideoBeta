@@ -34,7 +34,6 @@ router.get('/detail/:id', (req, res, next) => {
 
 })
 
-
 router.post('/create', (req, res, next) => {
 
   const { title, overview, id, vote_average } = req.body
