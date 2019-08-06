@@ -12,7 +12,7 @@
             <hr>
 
             <form action="/movies/create" method="post">
-                {{/with}}
+     
                 <div class="form-group">
                     <label for="title-input">Titulo</label>
                     <input type="text" class="form-control the-title" id="title-input" name="title"
@@ -37,16 +37,14 @@
                         placeholder="{{this.vote_average}}" value="{{this.vote_average}}">
                 </div>
                 <button class="btn btn-dark" type="submit"> Añadir a favoritos </button>
+                <a href="/roles/miPerfil" class="btn btn-primary active" role="button" aria-pressed="true">Volver a mi perfil</a>
+
 
             </form>
 
         </div>
     </div>
 
-</div>
-</div>
-
 {{/with}}
 
-</div>
 </div>

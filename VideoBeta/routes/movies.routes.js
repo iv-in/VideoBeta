@@ -45,7 +45,7 @@ router.post('/create', (req, res, next) => {
 
 router.get('/mis_favoritos', (req, res, next) => {
   Movie.find()
-    .then((myMovies => res.render('movies/movies-list', { movies: myMovies })))
+    .then((myMovies => res.render('movies/movies-list', { movies: myMovies, user: req.user })))
     .catch((err) => console.log(err))
 })
 
