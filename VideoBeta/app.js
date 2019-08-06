@@ -78,5 +78,7 @@ app.use('/auth', authRoutes);
 const rolesRoutes = require('./routes/roles.routes');
 app.use('/roles', rolesRoutes);
 
+const movieRoutes = require('./routes/movies.routes');
+app.use('/movies', movieRoutes);
 
 module.exports = app;

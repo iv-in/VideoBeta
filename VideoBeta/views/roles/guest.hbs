@@ -1,6 +1,25 @@
-<h1>Bienvenido!</h1>
-{{#if user}}
-<div>
-    ¡Bienvenid@, {{user.username}}!
+<h1>Mi Perfil</h1>
+
+<div class="container">
+
+    <div class="row justify-content-arround">
+        <ul>
+            {{#each response}}
+            <div class="col-6">
+
+                <li>
+                    <h3 id="title">{{this.title}}</h3>
+                </li>
+                <p id="over">{{this.overview}}</p>
+                <li>
+                    <p id="id">Referencia: {{this.id}}</p>
+                </li>
+                <a href="../movies/detail" class="btn btn-dark">Detalles</a>
+
+            </div>
+            {{/each}}
+        </ul>
+
+    </div>
+
 </div>
-{{/if}}
