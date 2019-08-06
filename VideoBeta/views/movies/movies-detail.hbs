@@ -1,37 +1,45 @@
-<div class="container">
+<div class="container detail-card">
+     {{#with response}}
 
-    <div class="row justify-content-around">
-
-        <div class="col-md-5">
-            <h2> Detalles de la pelicula </h2>
-            <hr>
-            {{#with response}}
-
-            <form action="/movies/create" method="post">
-                
-                <div class="form-group">
-                    <label for="title-input">Titulo</label>
-                    <input type="text" class="form-control the-title" id="title-input" name="title" placeholder="{{this.title}}" value="{{this.title}}"
-                </div>
-
-                <div class="form-group">
-                    <label for="over-input">Descripción</label>
-                    <textarea type="text" class="form-control the-over" name="over-input" name="overview" placeholder="{{this.overview}}" value="{{this.overview}}"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="id-input">Referencia</label>
-                    <input type="text" class="form-control the-id" id="id-input" name="id" placeholder="{{this.id}}" value="{{this.id}}">
-                </div>
-
-                <div class="form-group">
-                    <label for="rate-input">Votos</label>
-                    <input type="text" class="form-control the-rate" for="rate-input" name="vote_average" placeholder="{{this.vote_average}}" value="{{this.vote_average}}">
-                </div>
-                <button class="btn btn-dark" type="submit"> Añadir a favoritos </button>
-           
-            </form>
-                 {{/with}}
+    <div class="row">
+        <div class="col-5">
+            <img src="http://image.tmdb.org/t/p/w400{{this.poster_path}}" alt="">
         </div>
+
+        <div class="col-5">
+            
+                <h2> Detalles de la pelicula </h2>
+                <hr>
+           
+                <form action="/movies/create" method="post">
+                    
+                    <div class="form-group">
+                        <label for="title-input">Titulo</label>
+                        <input type="text" class="form-control the-title" id="title-input" name="title" placeholder="{{this.title}}" value="{{this.title}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="over-input">Descripción</label>
+                        <textarea rows="8" type="text" class="form-control the-over" name="over-input" name="overview" placeholder="{{this.overview}}" value="{{this.overview}}"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="id-input">Referencia</label>
+                        <input type="text" class="form-control the-id" id="id-input" name="id" placeholder="{{this.id}}" value="{{this.id}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rate-input">Votos</label>
+                        <input type="text" class="form-control the-rate" for="rate-input" name="vote_average" placeholder="{{this.vote_average}}" value="{{this.vote_average}}">
+                    </div>
+                    <button class="btn btn-dark" type="submit"> Añadir a favoritos </button>
+            
+                </form>
+         
+        </div>
+
     </div>
+
+     {{/with}}
+
 </div>

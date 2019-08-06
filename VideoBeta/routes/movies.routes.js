@@ -35,4 +35,19 @@ router.get('/detail/:id', (req, res, next) => {
 })
 
 
+router.post('/create', (req, res, next)=>{
+
+  const{title, overview,id,vote_average}=req.body
+
+  Movie.create({title, overview,id,vote_average})
+  .then(theMovie => res.redirect('/roles/miPerfil') )
+})
+
+router.get('/mis_favoritos', (req, res, next) => {
+  Movie.find()
+  .then((myMovies => res.render('movies/movies-list', {movies: myMovies})))
+  .catch((err) => console.log(err))
+})
+
+
 module.exports = router
