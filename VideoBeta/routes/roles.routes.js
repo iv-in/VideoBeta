@@ -24,7 +24,7 @@ router.get('/miPerfil', checkRoles("GUEST"), (req, res, next) => {
     axiosMovies.get(`/upcoming?api_key=${apiKey}&language=${apiLanguage}&page=${page}&region=${apiRegion}`) // método de la API
         .then(response => {
             //   console.log(response.data.results)
-            res.render('roles/guest', { response: response.data.results })
+            res.render('roles/profile', { response: response.data.results })
         })
         .catch(error => {
             console.log(error)
