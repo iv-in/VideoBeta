@@ -24,7 +24,11 @@ router.get('/miPerfil', checkRoles("GUEST"), (req, res, next) => {
     axiosMovies.get(`/upcoming?api_key=${apiKey}&language=${apiLanguage}&page=${page}&region=${apiRegion}`) // método de la API
         .then(response => {
             //   console.log(response.data.results)
+<<<<<<< HEAD
             res.render('roles/profile', { response: response.data.results })
+=======
+            res.render('roles/profile', { response: response.data.results, user: req.user }) // pasamos user a la vista con un if para el display del botón
+>>>>>>> 657158edb2ea6ad27a7ddefa97d7db205be911b9
         })
         .catch(error => {
             console.log(error)
