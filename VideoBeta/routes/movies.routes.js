@@ -18,21 +18,20 @@ const axiosMovies = axios.create({
 
 
 // Detalles de la pelicula
-router.get('/detail', (req, res, next) => {
-  res.render('movies/movies-detail')
 
-  // const Id = document.getElementById("id").value
-  //const Over = document.getElementById("over")
-  //const Title = document.getElementById("title")
+router.get('/detail/:id', (req, res, next) => {
+  // console.log('estoy dentro')
+  // console.log(req.params.id)
+  let movieId = req.params.id // este es el id que nos hemos traido como params desde el enlace de detalles del profile.hbs
+  axiosMovies.get(`/${movieId}?api_key=${apiKey}&language=${apiLanguage}&page=${page}&region=${apiRegion}`)
+  .then(response => { 
+    // console.log("estoy en la promesa")
+        res.render('movies/movies-detail', {response: response.data})
+      })
+      .catch(error => {
+        console.log(error)
+      })
 
-  // axiosMovies.get(`/${Id}?api_key=${apiKey}&language=${apiLanguage}&page=${page}&region=${apiRegion}`)
-  //   .then(response => {
-
-  //     res.render('movies/movies-detail', { response: response.data.results })
-  //   })
-  //   .catch(error => {
-  //     console.log(error)
-  //   })
 })
 
 
