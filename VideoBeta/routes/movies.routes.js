@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Movie = require('../models/movie-model')
+// const Post = require('../models/post.model')
 
 // requiero axios
 const axios = require('axios')
@@ -36,10 +37,10 @@ router.get('/detail/:id', (req, res, next) => {
 
 router.post('/create', (req, res, next) => {
 
-  const { title, overview, id, vote_average } = req.body
+  const { title, overview, id, vote_average, poster_path } = req.body // no cogemos el valor de view para que salga el default de pendiente
 
-  Movie.create({ title, overview, id, vote_average })
-    .then(theMovie => res.redirect('/roles/miPerfil'))
+  Movie.create({ title, overview, id, vote_average, poster_path })
+    .then(() => res.redirect('/roles/miPerfil'))
 })
 
 router.get('/mis_favoritos', (req, res, next) => {
@@ -47,6 +48,11 @@ router.get('/mis_favoritos', (req, res, next) => {
     .then((myMovies => res.render('movies/movies-list', { movies: myMovies, user: req.user })))
     .catch((err) => console.log(err))
 })
+
+
+
+// postear comentarios
+
 
 
 module.exports = router

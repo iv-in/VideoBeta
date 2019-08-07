@@ -5,7 +5,12 @@ const movieSchema = new Schema({
   title: String,
   overview: String,
   id: Number,
-  vote_average: Number
+  poster_path: String,
+  vote_average: Number,
+  view: { type: String,
+        enum: ['pendiente', 'ya la he visto'],
+        default: 'pendiente'
+  }
 }, { timestamps: true });
 
 const Movie = mongoose.model("movies", movieSchema)
