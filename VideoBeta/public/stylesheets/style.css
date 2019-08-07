@@ -22,4 +22,9 @@ a {
 .detail-card {
   margin-top: 40px; }
 
+figure {
+  width: 20%;
+  margin-bottom: 150px;
+  position: relative; }
+
 /*# sourceMappingURL=style.css.map */

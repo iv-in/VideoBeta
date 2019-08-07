@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-6">
       <h1>Favoritos</h1>
-      <a href="/" class="btn btn-dark">Volver a mi Perfil</a>
+      <a href="/roles/miPerfil" class="btn btn-dark">Volver a mi Perfil</a>
 
     </div>
     <div class="col-md-6">
@@ -14,7 +14,7 @@
           <h5>{{title}}</h5>
           <div>
             <a href="#" class="btn btn-outline-dark">Comentar Película </a>
-            <a href="#" class="btn btn-outline-dark"> Eliminar de Favoritos</a>
+            <a href="/movies/delete?movieId={{_id}}" class="btn btn-outline-dark"> Eliminar de Favoritos</a>
           </div>
         </li>
         {{/each}}

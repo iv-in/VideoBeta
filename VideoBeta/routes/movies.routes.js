@@ -35,9 +35,7 @@ router.get('/detail/:id', (req, res, next) => {
 })
 
 router.post('/create', (req, res, next) => {
-
   const { title, overview, id, vote_average } = req.body
-
   Movie.create({ title, overview, id, vote_average })
     .then(theMovie => res.redirect('/roles/miPerfil'))
 })
@@ -48,5 +46,26 @@ router.get('/mis_favoritos', (req, res, next) => {
     .catch((err) => console.log(err))
 })
 
+
+
+
+// Eliminar Pelicula
+router.get('/delete', (req, res, next) => {
+  //console.log(req.query)
+  Movie.findById(req.query.movieId)
+    .then(theMovie => res.render('movies/movies-delete', { theMovie }))
+    .catch(err => console.log('Hubo un error:', err))
+})
+router.post('/delete', (req, res, next) => {
+
+  const { title, overview, id, vote_average } = req.body
+
+  Movie.findByIdAndRemove(req.query.movieId, { $set: { title, overview, id, vote_average } })
+    .then(theMovies => {
+      //console.log(theMovies)
+      res.redirect('/movies/mis_favoritos')
+    })
+    .catch(err => console.log('Hubo un error:', err))
+})
 
 module.exports = router
