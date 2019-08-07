@@ -26,5 +26,7 @@ figure {
   width: 20%;
   margin-bottom: 150px;
   position: relative; }
+.out {
+  opacity: 0; }
 
 /*# sourceMappingURL=style.css.map */
