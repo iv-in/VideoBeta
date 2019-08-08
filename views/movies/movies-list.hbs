@@ -15,6 +15,7 @@
           <hr>
 
           <div class="row">
+          <h6>{{this.view}}</h6>
           <form action="/movies/edit" method="post">
             <div class="form-inline">
               <div class="form-group mx-sm-3 mb-2">
@@ -22,6 +23,7 @@
                   <option>pendiente</option>
                   <option>ya la he visto</option>
                 </select>
+                <input type="hidden" name="id" value={{_id}}>
               </div>  
               <button type="submit" id="yesOrNot" class="btn btn-dark mb-2">Cambiar</button>
             </div>

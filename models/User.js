@@ -8,7 +8,8 @@ const userSchema = new Schema({
     type: String,
     enum: ['GUEST', 'ADMIN'],
     default: 'GUEST'
-  }
+  },
+  favourites: [{type: Schema.Types.ObjectId, ref: 'Movie'}]
 }, {
     timestamps: true
   });

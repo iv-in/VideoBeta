@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const User = require("../models/User");
 const Movie = require('../models/movie-model')
 const Post = require('../models/post.model')
 
@@ -67,14 +68,25 @@ router.post('/create', (req, res, next) => {
   const { title, overview, id, vote_average, poster_path } = req.body // no cogemos el valor de view para que salga el default de pendiente
 
   Movie.create({ title, overview, id, vote_average, poster_path })
-    .then(() => res.redirect('/roles/miPerfil'))
+    .then((movie) => {
+
+      User.findByIdAndUpdate(req.user._id, {$push: {favourites: movie._id} }, {new: true})
+        .then((user)=> {
+          console.log(user)
+          res.redirect('/roles/miPerfil') } )  
+    })
 })
 
 // cuando vayamos a favoritos que saque la vista de pelis guardadas en la BBDD
 
 router.get('/mis_favoritos', (req, res, next) => {
-  Movie.find()
-    .then((myMovies => res.render('movies/movies-list', { movies: myMovies, user: req.user })))
+
+  User.findById(req.user._id)
+  .populate('favourites')
+    .then((myMovies => {
+      console.log(myMovies)
+      // res.render('movies/movies-list', { movies: myMovies, user: req.user })
+    }))
     .catch((err) => console.log(err))
 })
 
@@ -102,8 +114,13 @@ router.post('/delete', (req, res, next) => {
 
 router.post('/edit', (req, res, next) => {
 console.log('esoy en la ruta')
-  Movie.findOneAndUpdate(req.query.view, {view: 'ya la he visto'}, {new: true})
-  .then(() => res.render('/mis_favoritos'))
+console.log(req.body.id)
+  Movie.findByIdAndUpdate(req.body.id, {view: 'ya la he visto'}, {new: true})
+  .then(() => {
+    Movie.find()
+    .then((myMovies => res.render('movies/movies-list', { movies: myMovies, user: req.user })))
+    .catch((err) => console.log(err))
+  })
 })
 
 
