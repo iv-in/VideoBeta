@@ -25,5 +25,19 @@ router.get('/celebrities', (req, res, next) => {
     })
 })
 
+router.get('/detail/:id', (req, res, next) => {
+  console.log('estoy dentro')
+  // console.log(req.params.id)
+  let celebrityId = req.params.id // este es el id que nos hemos traido como params desde el enlace de detalles del profile.hbs
+  axiosCelebrity.get(`/${celebrityId}?api_key=${apiKey}&language=${apiLanguage}&page=${page}`)
+    .then(response => {
+      res.render('celebrities/celebrities-detail', { response: response.data })
+    })
+
+    .catch(error => console.log(error))
+
+})
+
+
 
 module.exports = router;

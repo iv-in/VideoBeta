@@ -1,0 +1,82 @@
+<div class="container detail-card">
+  {{#with response}}
+
+  <form action="/celebrities/create" method="post">
+    <div class="row">
+      <div class="col-4">
+        <img src="https://image.tmdb.org/t/p/w235_and_h235_face{{this.profile_path}}" alt="" width="100%">
+        <label for="image-input"></label>
+        <input class="out" type="text" id="image-input" name="profile_path"
+          value="https://image.tmdb.org/t/p/w235_and_h235_face{{this.profile_path}}">
+        <figure>
+          <canvas id="q2"></canvas>
+        </figure>
+      </div>
+
+      <div class="col-4">
+
+        <h2> Detalles del Actor/Actriz: </h2>
+        <hr>
+
+        <div class="form-group">
+          <label for="title-input">Nombre</label>
+          <input type="text" class="form-control the-title" id="title-input" name="name" placeholder="{{this.name}}"
+            value="{{this.name}}">
+        </div>
+
+        {{!-- <div class="form-group">
+          <label for="over-input">Biografía</label>
+          <textarea rows="8" type="text" class="form-control the-over" name="over-input" name="overview"
+            placeholder="{{this.know_for.0.overview}}" value="{{this.know_for.0.overview}}"></textarea>
+        </div> --}}
+
+        <div class="form-group">
+          <img src="https://image.tmdb.org/t/p/w150_and_h225_bestv2{{this.known_for.0.poster_path}}" alt="">
+          <label for="poster-input"></label>
+          <input class="out" type="text" id="poster-input" name="poster_path"
+            value="https://image.tmdb.org/t/p/w150_and_h225_bestv2{{this.known_for.0.poster_path}}">
+        </div>
+
+        {{!-- <div class="form-group">
+          <label for="id-input">Referencia</label>
+          <input type="text" class="form-control the-id" id="id-input" name="id" placeholder="{{this.id}}"
+            value="{{this.id}}">
+        </div> --}}
+
+        <div class="form-group">
+          <label for="rate-input">Popularidad</label>
+          <input type="text" class="form-control the-rate" for="rate-input" name="popularity"
+            placeholder="{{this.popularity}}" value="{{this.popularity}}" id="popularity">
+        </div>
+        <button class="btn btn-dark" type="submit"> Añadir a favoritos </button>
+        <a href="/roles/miPerfil" class="btn btn-primary active" role="button" aria-pressed="true">Volver a mi
+          perfil</a>
+
+      </div>
+      {{/with}}
+      <div class="col-4">
+        <h2>Comentarios</h2>
+        <hr>
+        {{!-- 
+        <form>
+          <label for="title-input">Añadir nuevo</label>
+          <input type="text" class="form-control the-id" id="author" placeholder="tu nombre">
+          <textarea id="comment" class="form-control the-over" type="text" placeholder="comentario"></textarea>
+          <button id="add-comment" class="btn btn-dark"> Postear comentario</button>
+        </form>
+
+        <h6 id="newAuthor"></h6>
+        <p id="incomeComment"></p> --}}
+
+        {{!-- {{#each allComments}}
+        <h6>{{this.author}}</h6>
+        <p>{{this.comment}}</p>
+        {{/each}} --}}
+
+      </div>
+    </div>
+  </form>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
