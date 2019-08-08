@@ -98,7 +98,13 @@ router.post('/delete', (req, res, next) => {
     .catch(err => console.log('Hubo un error:', err))
 })
 
+// Editar película: vista o por ver
 
+router.post('/edit', (req, res, next) => {
+console.log('esoy en la ruta')
+  Movie.findOneAndUpdate(req.query.view, {view: 'ya la he visto'}, {new: true})
+  .then(() => res.render('/mis_favoritos'))
+})
 
 
 module.exports = router
