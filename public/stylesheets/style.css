@@ -1,0 +1,56 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #eff5fc; }
+
+a {
+  color: #00B7FF; }
+
+#navbarNav li {
+  font-size: 1.3em; }
+
+.main {
+  padding: 50px 0 60px; }
+
+.card {
+  margin-top: 30px;
+  background-color: #eff5fc; }
+
+#home-title {
+  font-weight: bold;
+  font-size: 3em; }
+
+.detail-card {
+  margin-top: 40px; }
+
+figure {
+  width: 100%;
+  margin-bottom: 150px;
+  position: relative; }
+
+.out {
+  opacity: 0; }
+
+h6 {
+  font-weight: bold; }
+
+#comment {
+  margin: 10px 0; }
+
+#yesOrNot {
+  margin-right: 20px; }
+
+.separadito {
+  margin-right: 40px; }
+
+<<<<<<< HEAD:VideoBeta/public/stylesheets/style.css
+#card {
+  display: none; }
+
+#img {
+  display: none; }
+=======
+.top {
+  margin: 10px 0 60px 1300px; }
+>>>>>>> e4d7f53a1555ede83defa0338da19ffa62ee6fbd:public/stylesheets/style.css
+
+/*# sourceMappingURL=style.css.map */
