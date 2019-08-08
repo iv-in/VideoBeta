@@ -30,4 +30,10 @@ figure {
 .out {
   opacity: 0; }
 
+h6 {
+  font-weight: bold; }
+
+#comment {
+  margin: 10px 0; }
+
 /*# sourceMappingURL=style.css.map */

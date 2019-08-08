@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const Movie = require('../models/movie-model')
-// const Post = require('../models/post.model')
+const Post = require('../models/post.model')
+
 
 // requiero axios
 const axios = require('axios')
@@ -21,19 +22,45 @@ const axiosMovies = axios.create({
 // Detalles de la pelicula
 
 router.get('/detail/:id', (req, res, next) => {
-  // console.log('estoy dentro')
+   console.log('estoy dentro')
   // console.log(req.params.id)
   let movieId = req.params.id // este es el id que nos hemos traido como params desde el enlace de detalles del profile.hbs
   axiosMovies.get(`/${movieId}?api_key=${apiKey}&language=${apiLanguage}&page=${page}&region=${apiRegion}`)
     .then(response => {
-      // console.log("estoy en la promesa")
-      res.render('movies/movies-detail', { response: response.data })
-    })
-    .catch(error => {
-      console.log(error)
-    })
+       console.log("estoy en la promesa")
+      Post.find({movieId})
+        .then(allComments => {
+          console.log(allComments)
+          res.render('movies/movies-detail', { response: response.data, allComments: allComments })
+        })          
+      })
+        .catch((err) => console.log('error al buscar los comentarios en la BBDD', err))
+    .catch(error => console.log(error))
 
 })
+
+// recibo la info que manda el post de axios para postear un comment, lo mando a la BBDD y devuelvo al front el objeto
+
+router.post('/upload_comment', (req, res, next)=> {
+  const {author, comment, movieId} = req.body
+  // console.log({author, comment, movieId})
+  Post.create({author, comment, movieId})
+   .then(postCreated => {
+    
+    Post.find({})
+      .then(allComments => {
+
+        res.json(allComments)
+      })
+      .catch()
+
+  })
+   .catch(err => console.log('error con el json', err))
+})
+
+
+
+// cogemos los datos de la peli que queremos pasar a mis favoritos
 
 router.post('/create', (req, res, next) => {
 
@@ -42,6 +69,8 @@ router.post('/create', (req, res, next) => {
   Movie.create({ title, overview, id, vote_average, poster_path })
     .then(() => res.redirect('/roles/miPerfil'))
 })
+
+// cuando vayamos a favoritos que saque la vista de pelis guardadas en la BBDD
 
 router.get('/mis_favoritos', (req, res, next) => {
   Movie.find()
@@ -52,6 +81,7 @@ router.get('/mis_favoritos', (req, res, next) => {
 
 
 // Eliminar Pelicula
+
 router.get('/delete', (req, res, next) => {
   //console.log(req.query)
   Movie.findById(req.query.movieId)
@@ -67,7 +97,7 @@ router.post('/delete', (req, res, next) => {
     })
     .catch(err => console.log('Hubo un error:', err))
 })
-// postear comentarios
+
 
 
 

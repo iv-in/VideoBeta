@@ -46,18 +46,32 @@
                     perfil</a>
 
             </div>
+            {{/with}}
 
             <div class="col-4">
                 <h2>Comentarios</h2>
                 <hr>
-                <h5>Añadir nuevo:</h5>
-                <textarea type="text"></textarea>
-                <button class="btn btn-dark" type="submit"> Añadir </button>
+
+                <form>
+                    <label for="title-input">Añadir nuevo</label>
+                    <input type="text" class="form-control the-id" id="author" placeholder="tu nombre">
+                    <textarea id="comment" class="form-control the-over" type="text"
+                        placeholder="comentario"></textarea>
+                    <button id="add-comment" class="btn btn-dark"> Postear comentario</button>
+                </form>
+
+                <h6 id="newAuthor"></h6>
+                <p id="incomeComment"></p>
+
+                {{#each allComments}}
+                <h6>{{this.author}}</h6>
+                <p>{{this.comment}}</p>
+                {{/each}}
+
             </div>
         </div>
     </form>
 
-    {{/with}}
 
 </div>
 
