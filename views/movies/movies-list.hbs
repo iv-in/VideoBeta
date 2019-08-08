@@ -1,43 +1,31 @@
-<div class='container main'>
-  <div class="row">
-    <h2 class="separadito">Favoritos: </h2>
-    <a href="/roles/miPerfil" class="btn btn-dark separadito">Volver a mi Perfil</a>
-  </div>
+<div class="container">
+
+  <h2 class="separadito">Favoritos: </h2>
+  <a href="/roles/miPerfil" class="btn btn-dark separadito">Volver a mi Perfil</a>
+
   <div class="row justify-content-around">
     {{#each movies}}
-    <div class="col-6 card">
-      <div class="row">
-        <div class="col-4">
-          <img src="{{this.poster_path}}" alt="" style="width:60%">
-        </div>
-        <div class="col-8">
-          <h4>{{title}}</h4>
-          <hr>
-
-          <div class="row">
-          <h6>{{this.view}}</h6>
-          <form action="/movies/edit" method="post">
-            <div class="form-inline">
-              <div class="form-group mx-sm-3 mb-2">
-                <select class="form-control">
-                  <option>pendiente</option>
-                  <option>ya la he visto</option>
-                </select>
+      <div class="col-6 card">
+        <div class="row">
+          <div class="col-4">
+             <a href="/movies/detail/{{this.id}}"><img src="{{this.poster_path}}" alt="" style="width:60%"></a>
+          </div>
+          <div class="col-8">
+             <h4>{{title}}</h4>
+             <form action="/movies/edit" method="post">
+              <h6>{{this.view}}</h6>
+              <select class="form-control">
+                <option>pendiente</option>
+                <option>ya la he visto</option>
+              </select>
                 <input type="hidden" name="id" value={{_id}}>
-              </div>  
-              <button type="submit" id="yesOrNot" class="btn btn-dark mb-2">Cambiar</button>
-            </div>
-          </form>
+                <button type="submit" id="yesOrNot" class="btn btn-dark mb-2">Cambiar</button>
+             </form>
+             <a href="/movies/delete?movieId={{_id}}" class="btn btn-outline-dark"> Eliminar de Favoritos</a>
           </div>
-
-          <div class="row">
-            {{!-- <a href="#" class="btn btn-outline-dark btn-sm">Comentar Película </a> --}}
-            <a href="/movies/delete?movieId={{_id}}" class="btn btn-outline-dark"> Eliminar de Favoritos</a>
-          </div>
-          </div>
-        </div>
+        </div>  
       </div>
-    </div>
     {{/each}}
+
   </div>
 </div>

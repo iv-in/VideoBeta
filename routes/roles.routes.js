@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Movie = require('../models/movie-model')
+const Post = require('../models/post.model')
 
 // requiero axios
 const axios = require('axios')
@@ -30,11 +31,30 @@ router.get('/miPerfil', checkRoles("GUEST"), (req, res, next) => {
             console.log(error)
         })
 });
-router.get('/admin', checkRoles("ADMIN"), (req, res, next) => res.render('roles/admin'));
 
 
+// el admin va a tener solo vista a los posts para eliminar los salidos de tono
 
 
+router.get('/admin', checkRoles('ADMIN'), (req, res, next) => {
+    Post.find()
+    .then(allThePosts => res.render('roles/admin', {allThePosts}))
+    .catch((err) => console.log('error al pasar a la vista de admin', err))
+})
+
+// y con estos los elimina
+
+
+router.post('/admin/delete/:id', (req, res, next) => {
+    const postId = req.params.id
+    // console.log('estoy en la ruta')
+    // console.log(postId)
+    Post.findByIdAndRemove(postId)
+    .then(() => res.redirect('/roles/admin'))
+    .catch(err => {
+        console.log('error al eliminar un post y volver a la vista de admin', err)
+    })    
+})
 
 
 

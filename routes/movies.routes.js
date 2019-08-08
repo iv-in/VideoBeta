@@ -23,12 +23,12 @@ const axiosMovies = axios.create({
 // Detalles de la pelicula
 
 router.get('/detail/:id', (req, res, next) => {
-   console.log('estoy dentro')
+  //  console.log('estoy dentro')
   // console.log(req.params.id)
   let movieId = req.params.id // este es el id que nos hemos traido como params desde el enlace de detalles del profile.hbs
   axiosMovies.get(`/${movieId}?api_key=${apiKey}&language=${apiLanguage}&page=${page}&region=${apiRegion}`)
     .then(response => {
-       console.log("estoy en la promesa")
+      //  console.log("estoy en la promesa")
       Post.find({movieId})
         .then(allComments => {
           console.log(allComments)
@@ -83,9 +83,9 @@ router.get('/mis_favoritos', (req, res, next) => {
 
   User.findById(req.user._id)
   .populate('favourites')
-    .then((myMovies => {
-      console.log(myMovies)
-      // res.render('movies/movies-list', { movies: myMovies, user: req.user })
+    .then((user => {
+      console.log(user)
+      res.render('movies/movies-list', { movies: user.favourites, user: req.user })
     }))
     .catch((err) => console.log(err))
 })
@@ -113,8 +113,8 @@ router.post('/delete', (req, res, next) => {
 // Editar película: vista o por ver
 
 router.post('/edit', (req, res, next) => {
-console.log('esoy en la ruta')
-console.log(req.body.id)
+// console.log('esoy en la ruta')
+// console.log(req.body.id)
   Movie.findByIdAndUpdate(req.body.id, {view: 'ya la he visto'}, {new: true})
   .then(() => {
     Movie.find()
