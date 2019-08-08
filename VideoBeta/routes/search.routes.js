@@ -45,6 +45,5 @@ router.get('/upcomings', (req, res, next) => {
     })
 })
 
-router.get('/theatres', (req, res, next) => res.render('theatres', { user: req.user }))
 
 module.exports = router;

@@ -9,7 +9,8 @@ const axios = require('axios')
 // establezco las variables para las llamadas a la API
 const apiKey = process.env.API_KEY
 const apiLanguage = 'en-US'
-const page = '1'
+const page = 2
+
 
 
 const axiosCelebrity = axios.create({
@@ -31,6 +32,7 @@ router.get('/detail/:id', (req, res, next) => {
   let celebrityId = req.params.id // este es el id que nos hemos traido como params desde el enlace de detalles del profile.hbs
   axiosCelebrity.get(`/${celebrityId}?api_key=${apiKey}&language=${apiLanguage}&page=${page}`)
     .then(response => {
+      console.log(response.data.person)
       res.render('celebrities/celebrities-detail', { response: response.data })
     })
 

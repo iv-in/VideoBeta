@@ -1,6 +1,6 @@
 <h3>Bienvenid@ {{user.username}}</h3>
 
-<div class='container main'>
+<div class='container main' id="img">
     <h1 id="home-title">{{message}}</h1>
     <div class="row justify-content-around">
         {{#each response}}
@@ -22,3 +22,6 @@
         {{/each}}
     </div>
 </div>
+
+<script src="/javascripts/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
