@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 require('dotenv').config();
 
 // requiero axios
@@ -18,17 +18,13 @@ const axiosMovies = axios.create({
 
 
 
-
 /* GET home page */
 router.get('/', (req, res, next) => {
   axiosMovies.get(`/upcoming?api_key=${apiKey}&language=${apiLanguage}&page=${page}&region=${apiRegion}`) // método de la API
-  .then (response => res.render('index', {response: response.data.results, message: "Próximos estrenos:"}))
+    .then(response => res.render('index', { response: response.data.results, message: "Próximos estrenos:" }))
     .catch(error => console.log(`error al sacar la foto:`, error))
-    
+
 
 })
-
-
-
 
 module.exports = router;

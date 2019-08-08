@@ -8,6 +8,9 @@
                 <label for="image-input"></label>
                 <input class="out" type="text" id="image-input" name="poster_path"
                     value="http://image.tmdb.org/t/p/w400{{this.poster_path}}">
+                <figure>
+                    <canvas id="q2"></canvas>
+                </figure>
             </div>
 
             <div class="col-4">
@@ -36,13 +39,11 @@
                 <div class="form-group">
                     <label for="rate-input">Votos</label>
                     <input type="text" class="form-control the-rate" for="rate-input" name="vote_average"
-                        placeholder="{{this.vote_average}}" value="{{this.vote_average}}">
+                        placeholder="{{this.vote_average}}" value="{{this.vote_average}}" id="votos">
                 </div>
                 <button class="btn btn-dark" type="submit"> Añadir a favoritos </button>
                 <a href="/roles/miPerfil" class="btn btn-primary active" role="button" aria-pressed="true">Volver a mi
                     perfil</a>
-
-
 
             </div>
 
@@ -59,3 +60,5 @@
     {{/with}}
 
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>

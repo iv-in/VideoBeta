@@ -1,8 +1,8 @@
 <div class="container main">
   <div class="row">
-
+    {{#with movies}}
     <div class="col-md-6">
-      Aqui va la imgen.
+      <img src="{{this.poster_path}}" alt="" style="width:60%">
     </div>
 
     <div class="col-md-6">
@@ -11,7 +11,7 @@
       <form action="/movies/delete?movieId={{theMovie._id}}" method="post">
         <div class="form-group">
           <label for="title-input">Nombre</label>
-          <input name="title" type="text" class="form-control" id="title-input" value="{{theMovie.title}}">
+          <input name="title" type="text" class="form-control" id="title-input" value="{{this.title}}">
         </div>
 
         <div class="form-group">
@@ -31,6 +31,6 @@
 
       </form>
     </div>
-
+    {{/with}}
   </div>
 </div>

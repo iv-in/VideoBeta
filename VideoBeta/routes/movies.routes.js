@@ -51,20 +51,17 @@ router.get('/mis_favoritos', (req, res, next) => {
 
 
 
-
 // Eliminar Pelicula
 router.get('/delete', (req, res, next) => {
   //console.log(req.query)
   Movie.findById(req.query.movieId)
-    .then(theMovie => res.render('movies/movies-delete', { theMovie }))
+    .then(theMovie => res.render('movies/movies-delete', { movies: theMovie }))
     .catch(err => console.log('Hubo un error:', err))
 })
 router.post('/delete', (req, res, next) => {
-
-  const { title, overview, id, vote_average } = req.body
-
-  Movie.findByIdAndRemove(req.query.movieId, { $set: { title, overview, id, vote_average } })
-    .then(theMovies => {
+  const { title, overview, id, vote_average, poster_path } = req.body
+  Movie.findByIdAndRemove(req.query.movieId, { $set: { title, overview, id, vote_average, poster_path } })
+    .then(theMovie => {
       //console.log(theMovies)
       res.redirect('/movies/mis_favoritos')
     })

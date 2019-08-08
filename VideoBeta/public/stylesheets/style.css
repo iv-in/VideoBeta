@@ -23,9 +23,10 @@ a {
   margin-top: 40px; }
 
 figure {
-  width: 20%;
+  width: 100%;
   margin-bottom: 150px;
   position: relative; }
+
 .out {
   opacity: 0; }
 

@@ -1,22 +1,22 @@
-function initMap() {
+// function initMap() {
 
-    const IronHackBCN = { lat: 41.3977381, lng: 2.190471916 }       // Respetar nombres propiedades
+//     const IronHackBCN = { lat: 41.3977381, lng: 2.190471916 }       // Respetar nombres propiedades
 
-    const myMap = new google.maps.Map(
-        document.getElementById('map'),
-        {
-            center: IronHackBCN,
-            zoom: 10
-        }
-    )
+//     const myMap = new google.maps.Map(
+//         document.getElementById('map'),
+//         {
+//             center: IronHackBCN,
+//             zoom: 10
+//         }
+//     )
 
-    new google.maps.Marker({
-        map: myMap,
-        position: IronHackBCN,
-        title: 'Los Ironhackers del mar'
-    })
-}
-initMap()
+//     new google.maps.Marker({
+//         map: myMap,
+//         position: IronHackBCN,
+//         title: 'Los Ironhackers del mar'
+//     })
+// }
+// initMap()
 
 
 
@@ -30,29 +30,29 @@ const page = '1'
 const apiRegion = 'ES'
 
 
-// router.get('/detail/:id', (req, res, next) => {
-//     let movieId = req.params.id
-//     axiosMovies.get(`/${movieId}?api_key=${apiKey}&language=${apiLanguage}&page=${page}&region=${apiRegion}`)
-//         .then(response => printCharts(response.data))
-//         .catch(error => { console.log(error) })
-//     const printCharts = info => {
-//         doughnutChart('q2', info, 200)
-//     }
-// })
 
-// const doughnutChart = (id) => {
+const printCharts = info => {
+    doughnutChart('q2', 50)
+}
+const doughnutChart = (id, height) => {
+    height ? document.getElementById(id).height = height : null
+    new Chart(id, {
+        type: 'doughnut',
+        data: {
+            labels: ['Votos'],
+            datasets: [{
+                label: 'Votos',
+                data: [document.getElementById('votos').value, 10 - document.getElementById('votos').value],
+                borderColor: ['rgba(0, 50, 250, .7)'],
+                backgroundColor: ['rgba(0, 50, 250, .2)']
+            }]
+        },
+        options: {
+            legend: { position: 'left' }
+        }
+    })
+}
 
-//     new Chart(id, {
-//         type: 'doughnut',
-//         data: {
-//             labels: ['vote_average'],
-//             datasets: [{
-//                 label: 'Votaciones',
-//                 data: [10, 10],
-//                 borderColor: ['rgba(0, 50, 250, .7)'],
-//                 backgroundColor: ['rgba(0, 50, 250, .2)']
-//             }]
-//         },
-//         options: { legend: { position: 'left' } }
-//     })
-// }
+//console.log('ejecutadoo')
+
+printCharts()

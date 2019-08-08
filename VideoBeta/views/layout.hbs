@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/">
       <img class='logo' src="/images/beta-system.svg" width="40" height="40" class="d-inline-block align-top" alt="">
@@ -37,12 +37,13 @@
         aria-haspopup="true" aria-expanded="false">
         Mis opciones
       </a>
-    {{/if}}
+      {{/if}}
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
         <a class="dropdown-item" href="/search/now_playing">Buscar en cartelera</a>
         <a class="dropdown-item" href="/search/populars">Buscar populares</a>
         <a class="dropdown-item" href="/search/upcomings">Buscar próximos extrenos</a>
         <a class="dropdown-item" href="/movies/mis_favoritos">Ver mis favoritos</a>
+        <a class="dropdown-item" href="/celebrities/celebrities">Ver Celebrities</a>
         <a class="dropdown-item" href="/search/theatres">Ver cines más cercanos</a>
       </div>
     </div>
@@ -58,7 +59,6 @@
 
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
@@ -68,6 +68,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/javascripts/main.js"></script>
   <script src="/javascripts/script.js"></script>
 </body>
 

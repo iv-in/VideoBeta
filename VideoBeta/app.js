@@ -81,6 +81,9 @@ app.use('/roles', rolesRoutes);
 const searchRoutes = require('./routes/search.routes')
 app.use('/search', searchRoutes)
 
+const celebritiesRoutes = require('./routes/celebrities.routes')
+app.use('/celebrities', celebritiesRoutes)
+
 const movieRoutes = require('./routes/movies.routes');
 app.use('/movies', movieRoutes);
 
