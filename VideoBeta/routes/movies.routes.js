@@ -8,7 +8,7 @@ const Post = require('../models/post.model')
 const axios = require('axios')
 
 //establezco las variables para las llamadas a la API
-const apiKey = 'a2acebdabfdb1f2e541a6ea9ab258096'
+const apiKey = process.env.API_KEY
 const apiLanguage = 'en-US'
 const page = '1'
 const apiRegion = 'ES'
@@ -98,7 +98,13 @@ router.post('/delete', (req, res, next) => {
     .catch(err => console.log('Hubo un error:', err))
 })
 
+// Editar película: vista o por ver
 
+router.post('/edit', (req, res, next) => {
+console.log('esoy en la ruta')
+  Movie.findOneAndUpdate(req.query.view, {view: 'ya la he visto'}, {new: true})
+  .then(() => res.render('/mis_favoritos'))
+})
 
 
 module.exports = router

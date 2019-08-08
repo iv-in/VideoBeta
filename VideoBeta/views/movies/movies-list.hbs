@@ -1,7 +1,7 @@
 <div class='container main'>
   <div class="row">
-    <h2>Favoritos: </h2>
-    <a href="/roles/miPerfil" class="btn btn-dark ">Volver a mi Perfil</a>
+    <h2 class="separadito">Favoritos: </h2>
+    <a href="/roles/miPerfil" class="btn btn-dark separadito">Volver a mi Perfil</a>
   </div>
   <div class="row justify-content-around">
     {{#each movies}}
@@ -13,22 +13,25 @@
         <div class="col-8">
           <h4>{{title}}</h4>
           <hr>
+
           <div class="row">
-            <a href="#" class="btn btn-outline-dark btn-sm">Comentar Película </a>
-            <a href="/movies/delete?movieId={{_id}}" class="btn btn-outline-dark btn-sm"> Eliminar de Favoritos</a>
-          </div>
-          <div class="row">
-            <div class="input-group mb-3">
-              <div class="input-group-prepend">
-                <label class="input-group-text" for="inputGroupSelect01">Options</label>
-              </div>
-              <select class="custom-select" id="inputGroupSelect01">
-                <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
+          <form action="/movies/edit" method="post">
+            <div class="form-inline">
+              <div class="form-group mx-sm-3 mb-2">
+                <select class="form-control">
+                  <option>pendiente</option>
+                  <option>ya la he visto</option>
+                </select>
+              </div>  
+              <button type="submit" id="yesOrNot" class="btn btn-dark mb-2">Cambiar</button>
             </div>
+          </form>
+          </div>
+
+          <div class="row">
+            {{!-- <a href="#" class="btn btn-outline-dark btn-sm">Comentar Película </a> --}}
+            <a href="/movies/delete?movieId={{_id}}" class="btn btn-outline-dark"> Eliminar de Favoritos</a>
+          </div>
           </div>
         </div>
       </div>

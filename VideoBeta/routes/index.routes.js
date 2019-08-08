@@ -6,7 +6,7 @@ require('dotenv').config();
 const axios = require('axios')
 
 // establezco las variables para las llamadas a la API
-const apiKey = 'a2acebdabfdb1f2e541a6ea9ab258096'
+const apiKey = process.env.API_KEY
 const apiLanguage = 'en-US'
 const page = '1'
 const apiRegion = 'ES'

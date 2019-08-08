@@ -24,7 +24,6 @@ const axiosMovies = axios.create({
     baseURL: "https://api.themoviedb.org/3/movie"
 })
 //establezco las variables para las llamadas a la API
-const apiKey = 'a2acebdabfdb1f2e541a6ea9ab258096'
 const apiLanguage = 'en-US'
 const page = '1'
 const apiRegion = 'ES'
