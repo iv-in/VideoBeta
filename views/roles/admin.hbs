@@ -1,9 +1,13 @@
-<h1>Bienvenido Admin</h1>
+<div class="container">
+  <h1>Bienvenido Admin</h1>
 
-{{#each allThePosts}}
-<h5>{{this.author}}</h5>
-<p>{{this.comment}}</p>
-<form action="/roles/admin/delete/{{this._id}}" method="post">
-  <button class="btn btn-dark">Eliminar este post</button>
-</form>
-{{/each}}
+    {{#each allThePosts}}
+      <h5 class="delete-post">Autor: {{this.author}}</h5>
+      <p>Post: {{this.comment}}</p>
+ 
+      <form action="/roles/admin/delete/{{this._id}}" method="post">
+        <button class="btn btn-dark">Eliminar este post</button>
+      </form>
+    {{/each}}
+
+</div>
