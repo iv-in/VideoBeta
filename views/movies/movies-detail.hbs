@@ -34,7 +34,9 @@
                     <input type="text" class="form-control the-id" id="id-input" name="id" placeholder="{{this.id}}"
                         value="{{this.id}}">
                 </div>
-
+                {{#if this.homepage}}
+                <a class="trailer" target="_blank" href="{{this.homepage}}">ver trailer</a>
+                {{/if}}
                 <div class="form-group">
                     <label for="rate-input">Votos</label>
                     <input type="text" class="form-control the-rate" for="rate-input" name="vote_average"
